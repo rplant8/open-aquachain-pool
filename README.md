@@ -1,4 +1,4 @@
-## Open Source Ethereum Mining Pool
+## Open Source Aquachain Mining Pool
 
 ![Miner's stats page](https://user-images.githubusercontent.com/7374093/31591180-43c72364-b236-11e7-8d47-726cd66b876a.png)
 
@@ -6,7 +6,7 @@
 
 ### Features
 
-**This pool is being further developed to provide an easy to use pool for Ethereum miners. This software is functional however an optimised release of the pool is expected soon. Testing and bug submissions are welcome!**
+**This pool is being further developed to provide an easy to use pool for Aquachain miners. This software is functional however an optimised release of the pool is expected soon. Testing and bug submissions are welcome!**
 
 * Support for HTTP and Stratum mining
 * Detailed block stats with luck percentage and full reward
@@ -17,8 +17,8 @@
 
 #### Proxies
 
-* [Ether-Proxy](https://github.com/sammy007/ether-proxy) HTTP proxy with web interface
-* [Stratum Proxy](https://github.com/Atrides/eth-proxy) for Ethereum
+* [Aquachain-Proxy](https://github.com/sammy007/ether-proxy) HTTP proxy with web interface
+* [Stratum Proxy](https://github.com/Atrides/eth-proxy) for Aquachain
 
 ### Building on Linux
 
@@ -278,7 +278,7 @@ otherwise you will get errors on start because of JSON comments.**
     // Gas amount and price for payout tx (advanced users only)
     "gas": "21000",
     "gasPrice": "50000000000",
-    // Send payment only if miner's balance is >= 0.5 Ether
+    // Send payment only if miner's balance is >= 0.5 Aquachain
     "threshold": 500000000,
     // Perform BGSAVE on Redis after successful payouts session
     "bgsave": false
@@ -303,7 +303,7 @@ I recommend this deployment strategy:
 * Don't run payouts and unlocker modules as part of mining node. Create separate configs for both, launch independently and make sure you have a single instance of each module running.
 * If `poolFeeAddress` is not specified all pool profit will remain on coinbase address. If it specified, make sure to periodically send some dust back required for payments.
 
-### Alternative Ethereum Implementations
+### Alternative Aquachain Implementations
 
 This pool is tested to work with [Ethcore's Parity](https://github.com/ethcore/parity). Mining and block unlocking works, but I am not sure about payouts and suggest to run *official* geth node for payments.
 

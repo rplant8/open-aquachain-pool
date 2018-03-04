@@ -10,7 +10,7 @@ import (
 	"github.com/aquanetwork/aquachain/common/math"
 )
 
-var Ether = math.BigPow(10, 18)
+var Aquachain = math.BigPow(10, 18)
 var Shannon = math.BigPow(10, 9)
 
 var pow256 = math.BigPow(2, 256)
@@ -52,7 +52,7 @@ func FormatReward(reward *big.Int) string {
 }
 
 func FormatRatReward(reward *big.Rat) string {
-	wei := new(big.Rat).SetInt(Ether)
+	wei := new(big.Rat).SetInt(Aquachain)
 	reward = reward.Quo(reward, wei)
 	return reward.FloatString(8)
 }
