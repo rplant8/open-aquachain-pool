@@ -9,8 +9,8 @@ import (
 
 	"github.com/aquanetwork/aquachain/common"
 
-	"github.com/sammy007/open-ethereum-pool/rpc"
-	"github.com/sammy007/open-ethereum-pool/util"
+	"github.com/aquachain/open-aquachain-pool/rpc"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 const maxBacklog = 3

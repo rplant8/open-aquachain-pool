@@ -14,7 +14,7 @@ import (
 
 	"github.com/aquanetwork/aquachain/common"
 
-	"github.com/sammy007/open-ethereum-pool/util"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 type RPCClient struct {

@@ -6,11 +6,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ethereum/ethash"
+	"github.com/aquanetwork/aquahash"
 	"github.com/aquanetwork/aquachain/common"
 )
 
-var hasher = ethash.New()
+var hasher = aquahash.New()
 
 func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, params []string) (bool, bool) {
 	nonceHex := params[0]
