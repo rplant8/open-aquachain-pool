@@ -5,7 +5,7 @@
 
 	"proxy": {
 		"enabled": true,
-		"listen": "0.0.0.0:8888",
+		"listen": "0.0.0.0:19998",
 		"limitHeadersSize": 1024,
 		"limitBodySize": 256,
 		"behindReverseProxy": false,
@@ -19,7 +19,7 @@
 
 		"stratum": {
 			"enabled": true,
-			"listen": "0.0.0.0:8008",
+			"listen": "0.0.0.0:19999",
 			"timeout": "120s",
 			"maxConn": 8192
 		},
@@ -63,12 +63,12 @@
 	"upstream": [
 		{
 			"name": "main",
-			"url": "http://127.0.0.1:8545",
+			"url": "http://127.0.0.1:8543",
 			"timeout": "10s"
 		},
 		{
 			"name": "backup",
-			"url": "http://127.0.0.2:8545",
+			"url": "http://127.0.0.2:8543",
 			"timeout": "10s"
 		}
 	],
@@ -83,13 +83,13 @@
 	"unlocker": {
 		"enabled": false,
 		"poolFee": 1.0,
-		"poolFeeAddress": "",
+		"poolFeeAddress": "0x3317e8405e75551ec7eeeb3508650e7b349665ff",
 		"donate": true,
 		"depth": 120,
 		"immatureDepth": 20,
 		"keepTxFees": false,
 		"interval": "10m",
-		"daemon": "http://127.0.0.1:8545",
+		"daemon": "http://127.0.0.1:8543",
 		"timeout": "10s"
 	},
 
@@ -97,9 +97,9 @@
 		"enabled": false,
 		"requirePeers": 25,
 		"interval": "120m",
-		"daemon": "http://127.0.0.1:8545",
+		"daemon": "http://127.0.0.1:8543",
 		"timeout": "10s",
-		"address": "0x0",
+		"address": "0x3317e8405e75551ec7eeeb3508650e7b349665ff",
 		"gas": "21000",
 		"gasPrice": "50000000000",
 		"autoGas": true,
@@ -109,6 +109,6 @@
 
 	"newrelicEnabled": false,
 	"newrelicName": "MyAquachainProxy",
-	"newrelicKey": "SECRET_KEY",
+	"newrelicKey": "234werwuior4y5429847304987230948y324u23y",
 	"newrelicVerbose": false
 }
