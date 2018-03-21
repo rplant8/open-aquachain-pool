@@ -2,6 +2,8 @@
 
 All credit goes to https://github.com/sammy007/open-ethereum-pool
 
+Modified for mining Aquachain
+
 ![Miner's stats page](https://user-images.githubusercontent.com/7374093/31591180-43c72364-b236-11e7-8d47-726cd66b876a.png)
 
 ### Features
