@@ -11,7 +11,7 @@
     <dd>This is your address for payouts, generate one with aquachain, or mine directly to exchange like
       <a href="http://poloniex.com" rel="nofollow" target="_blank">Poloniex</a>
       or <a href="http://bittrex.com" rel="nofollow" target="_blank">Bittrex</a>.<br/>
-      <strong>Example:</strong> <code>0xb85150eb365e7df0941f0cf08235f987ba91506a</code>.
+      <strong>Example:</strong> <code>0x3317e8405e75551ec7eeeb3508650e7b349665ff</code>.
     </dd>
     <dt>RIG_ID</dt>
     <dd>
@@ -21,8 +21,10 @@
     </dd>
   </dl>
   <p>
-    <strong>Full example:</strong>
-    <code>ethminer.exe -F {{config.HttpHost}}:{{config.HttpPort}}/0xb85150eb365e7df0941f0cf08235f987ba91506a/myfarm -G --farm-recheck 200</code>.<br/>
+    <strong>Full example (amd):</strong>
+    <code>ethminer.exe -F {{config.HttpHost}}:{{config.HttpPort}}/0x3317e8405e75551ec7eeeb3508650e7b349665ff/myfarm -G --farm-recheck 200</code>.<br/>
+    <strong>Full example (nvidia):</strong>
+    <code>ethminer.exe -F {{config.HttpHost}}:{{config.HttpPort}}/0x3317e8405e75551ec7eeeb3508650e7b349665ff/myfarm -U --farm-recheck 200</code>.<br/>
     <span class="label label-info">Hint:</span> If you are compiling ethminer.exe from latest source, please also use
       extra <code>--disable-submit-hashrate</code> option.
   </p>
@@ -39,5 +41,9 @@
   <h4>Terms of Service</h4>
   <p>By using the pool you accept all possible risks related to experimental software usage.<br/>
      Pool owner can't compensate any irreversible losses, but will do his best to prevent worst case.
+  </p>
+
+  <p>
+    Chat: <a href="https://t.me/AquaCrypto">@AquaCrypto</a>
   </p>
 </div>
