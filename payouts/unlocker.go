@@ -92,7 +92,7 @@ type UnlockResult struct {
 	blocks         int
 }
 
-/* Geth does not provide consistent state when you need both new height and new job,
+/* Aquachain does not provide consistent state when you need both new height and new job,
  * so in redis I am logging just what I have in a pool state on the moment when block found.
  * Having very likely incorrect height in database results in a weird block unlocking scheme,
  * when I have to check what the hell we actually found and traversing all the blocks with height-N and height+N
@@ -192,7 +192,7 @@ func matchCandidate(block *rpc.GetBlockReply, candidate *storage.BlockData) bool
 	if len(candidate.Hash) > 0 && strings.EqualFold(candidate.Hash, block.Hash) {
 		return true
 	}
-	// Geth-style candidate matching
+	// Aquachain-style candidate matching
 	if len(block.Nonce) > 0 {
 		return strings.EqualFold(block.Nonce, candidate.Nonce)
 	}

@@ -125,18 +125,18 @@ func TestGetByzantiumRewardForUngle(t *testing.T) {
 }
 
 func TestMatchCandidate(t *testing.T) {
-	gethBlock := &rpc.GetBlockReply{Hash: "0x12345A", Nonce: "0x1A"}
+	aquachainBlock := &rpc.GetBlockReply{Hash: "0x12345A", Nonce: "0x1A"}
 	parityBlock := &rpc.GetBlockReply{Hash: "0x12345A", SealFields: []string{"0x0A", "0x1A"}}
 	candidate := &storage.BlockData{Nonce: "0x1a"}
 	orphan := &storage.BlockData{Nonce: "0x1abc"}
 
-	if !matchCandidate(gethBlock, candidate) {
+	if !matchCandidate(aquachainBlock, candidate) {
 		t.Error("Must match with nonce")
 	}
 	if !matchCandidate(parityBlock, candidate) {
 		t.Error("Must match with seal fields")
 	}
-	if matchCandidate(gethBlock, orphan) {
+	if matchCandidate(aquachainBlock, orphan) {
 		t.Error("Must not match with orphan with nonce")
 	}
 	if matchCandidate(parityBlock, orphan) {

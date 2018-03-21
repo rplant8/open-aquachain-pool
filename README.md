@@ -1,8 +1,8 @@
 ## Open Source Aquachain Mining Pool
 
-![Miner's stats page](https://user-images.githubusercontent.com/7374093/31591180-43c72364-b236-11e7-8d47-726cd66b876a.png)
+All credit goes to https://github.com/sammy007/open-ethereum-pool
 
-[![Join the chat at https://gitter.im/sammy007/open-ethereum-pool](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sammy007/open-ethereum-pool?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/sammy007/open-ethereum-pool.svg?branch=develop)](https://travis-ci.org/sammy007/open-ethereum-pool) [![Go Report Card](https://goreportcard.com/badge/github.com/aquachain/open-aquachain-pool)](https://goreportcard.com/report/github.com/aquachain/open-aquachain-pool)
+![Miner's stats page](https://user-images.githubusercontent.com/7374093/31591180-43c72364-b236-11e7-8d47-726cd66b876a.png)
 
 ### Features
 
@@ -10,42 +10,42 @@
 
 * Support for HTTP and Stratum mining
 * Detailed block stats with luck percentage and full reward
-* Failover geth instances: geth high availability built in
+* Failover aquachain instances: aquachain high availability built in
 * Modern beautiful Ember.js frontend
 * Separate stats for workers: can highlight timed-out workers so miners can perform maintenance of rigs
 * JSON-API for stats
 
 #### Proxies
 
-* [Aquachain-Proxy](https://github.com/sammy007/ether-proxy) HTTP proxy with web interface
-* [Stratum Proxy](https://github.com/Atrides/eth-proxy) for Aquachain
+* [Aquachain-Proxy](https://github.com/aquachain/aquachain-proxy) HTTP proxy with web interface
+* [Stratum Proxy](https://github.com/aquachain/aqua-proxy) for Aquachain
 
 ### Building on Linux
 
 Dependencies:
 
   * go >= 1.9
-  * geth or parity
+  * aquachain
   * redis-server >= 2.8.0
   * nodejs >= 4 LTS
   * nginx
 
 **I highly recommend to use Ubuntu 16.04 LTS.**
 
-First install  [go-ethereum](https://github.com/aquanetwork/aquachain/wiki/Installation-Instructions-for-Ubuntu).
+First install  [aquachain](https://github.com/aquanetwork/aquachain/wiki/Basics).
 
 Clone & compile:
 
     git config --global http.https://gopkg.in.followRedirects true
     git clone https://github.com/aquachain/open-aquachain-pool.git
-    cd open-ethereum-pool
+    cd open-aquachain-pool
     make
 
 Install redis-server.
 
 ### Running Pool
 
-    ./build/bin/open-ethereum-pool config.json
+    ./build/bin/open-aquachain-pool config.json
 
 You can use Ubuntu upstart - check for sample config in <code>upstart.conf</code>.
 
@@ -105,7 +105,7 @@ otherwise you will get errors on start because of JSON comments.**
   // Set to the number of CPU cores of your server
   "threads": 2,
   // Prefix for keys in redis store
-  "coin": "eth",
+  "coin": "aqua",
   // Give unique name to each instance
   "name": "main",
 
@@ -134,7 +134,7 @@ otherwise you will get errors on start because of JSON comments.**
       "maxConn": 8192
     },
 
-    // Try to get new job from geth in this interval
+    // Try to get new job from aquachain in this interval
     "blockRefreshInterval": "120ms",
     "stateUpdateInterval": "3s",
     // Require this share difficulty from miners
@@ -208,10 +208,10 @@ otherwise you will get errors on start because of JSON comments.**
     "purgeOnly": false
   },
 
-  // Check health of each geth node in this interval
+  // Check health of each aquachain node in this interval
   "upstreamCheckInterval": "5s",
 
-  /* List of geth nodes to poll for new jobs. Pool will try to get work from
+  /* List of aquachain nodes to poll for new jobs. Pool will try to get work from
     first alive one and check in background for failed to back up.
     Current block template of the pool is always cached in RAM indeed.
   */
@@ -254,9 +254,9 @@ otherwise you will get errors on start because of JSON comments.**
     "keepTxFees": false,
     // Run unlocker in this interval
     "interval": "10m",
-    // Geth instance node rpc endpoint for unlocking blocks
+    // Aquachain instance node rpc endpoint for unlocking blocks
     "daemon": "http://127.0.0.1:8545",
-    // Rise error if can't reach geth in this amount of time
+    // Rise error if can't reach aquachain in this amount of time
     "timeout": "10s"
   },
 
@@ -267,13 +267,13 @@ otherwise you will get errors on start because of JSON comments.**
     "requirePeers": 25,
     // Run payouts in this interval
     "interval": "12h",
-    // Geth instance node rpc endpoint for payouts processing
+    // Aquachain instance node rpc endpoint for payouts processing
     "daemon": "http://127.0.0.1:8545",
-    // Rise error if can't reach geth in this amount of time
+    // Rise error if can't reach aquachain in this amount of time
     "timeout": "10s",
     // Address with pool balance
     "address": "0x0",
-    // Let geth to determine gas and gasPrice
+    // Let aquachain to determine gas and gasPrice
     "autoGas": true,
     // Gas amount and price for payout tx (advanced users only)
     "gas": "21000",
@@ -305,7 +305,7 @@ I recommend this deployment strategy:
 
 ### Alternative Aquachain Implementations
 
-This pool is tested to work with [Ethcore's Parity](https://github.com/ethcore/parity). Mining and block unlocking works, but I am not sure about payouts and suggest to run *official* geth node for payments.
+This pool is tested to work with [Ethcore's Parity](https://github.com/ethcore/parity). Mining and block unlocking works, but I am not sure about payouts and suggest to run *official* aquachain node for payments.
 
 ### Credits
 
@@ -317,7 +317,7 @@ Made by sammy007. Licensed under GPLv3.
 
 ### Donations
 
-AQUA/ETC: 0xb85150eb365e7df0941f0cf08235f987ba91506a
+AQUA/ETH/ETC: 0xb85150eb365e7df0941f0cf08235f987ba91506a
 
 ![](https://cdn.pbrd.co/images/GP5tI1D.png)
 

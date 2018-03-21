@@ -11,10 +11,10 @@ fi
 workspace="$PWD/build/_workspace"
 root="$PWD"
 ethdir="$workspace/src/github.com/sammy007"
-if [ ! -L "$ethdir/open-ethereum-pool" ]; then
+if [ ! -L "$ethdir/open-aquachain-pool" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. open-ethereum-pool
+    ln -s ../../../../../. open-aquachain-pool
     cd "$root"
 fi
 
@@ -25,8 +25,8 @@ GOBIN="$PWD/build/bin"
 export GOPATH GOBIN
 
 # Run the command inside the workspace.
-cd "$ethdir/open-ethereum-pool"
-PWD="$ethdir/open-ethereum-pool"
+cd "$ethdir/open-aquachain-pool"
+PWD="$ethdir/open-aquachain-pool"
 
 # Launch the arguments with the configured environment.
 exec "$@"
