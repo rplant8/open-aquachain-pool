@@ -15,7 +15,7 @@ import (
 	"github.com/aquachain/open-aquachain-pool/util"
 )
 
-const txCheckInterval = 5 * time.Second
+const txCheckInterval = 30 * time.Second
 
 type PayoutsConfig struct {
 	Enabled      bool   `json:"enabled"`

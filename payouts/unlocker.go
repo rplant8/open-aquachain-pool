@@ -501,11 +501,10 @@ func weiToShannonInt64(wei *big.Rat) int64 {
 	return value
 }
 
+var bigbig1 = new(big.Int).Mul(big.NewInt(1), big.NewInt(1e18))
+
 func getConstReward(height int64) *big.Int {
-	if height >= byzantiumHardForkHeight {
-		return new(big.Int).Set(byzantiumReward)
-	}
-	return new(big.Int).Set(homesteadReward)
+	return bigbig1
 }
 
 func getRewardForUncle(height int64) *big.Int {

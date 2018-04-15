@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/aquachain/aquahash"
 	"github.com/aquanetwork/aquachain/common"
-	"github.com/aquanetwork/aquahash"
 )
 
 var hasher = aquahash.New()
