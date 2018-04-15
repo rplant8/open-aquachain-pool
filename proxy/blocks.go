@@ -40,6 +40,7 @@ type Block struct {
 	number      uint64
 }
 
+func (b Block) Version() byte            { return 2 }
 func (b Block) Difficulty() *big.Int     { return b.difficulty }
 func (b Block) HashNoNonce() common.Hash { return b.hashNoNonce }
 func (b Block) Nonce() uint64            { return b.nonce }

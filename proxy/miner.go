@@ -6,11 +6,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aquachain/aquahash"
 	"github.com/aquanetwork/aquachain/common"
+	"github.com/aquanetwork/aquachain/consensus/aquahash"
+	"github.com/aquanetwork/aquachain/params"
 )
 
-var hasher = aquahash.New()
+var hasher = aquahash.NewLight(params.TestnetChainConfig)
 
 func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, params []string) (bool, bool) {
 	nonceHex := params[0]
