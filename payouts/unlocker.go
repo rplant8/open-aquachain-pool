@@ -209,27 +209,15 @@ func (u *BlockUnlocker) handleBlock(block *rpc.GetBlockReply, candidate *storage
 		return err
 	}
 	candidate.Height = correctHeight
-	reward := getConstReward(candidate.Height)
 
-	// Add TX fees
-	extraTxReward, err := u.getExtraRewardForTx(block)
+	_, err = u.getExtraRewardForTx(block)
 	if err != nil {
 		return fmt.Errorf("Error while fetching TX receipt: %v", err)
 	}
-	if u.config.KeepTxFees {
-		candidate.ExtraReward = extraTxReward
-	} else {
-		reward.Add(reward, extraTxReward)
-	}
-
-	// Add reward for including uncles
-	uncleReward := getRewardForUncle(candidate.Height)
-	rewardForUncles := big.NewInt(0).Mul(uncleReward, big.NewInt(int64(len(block.Uncles))))
-	reward.Add(reward, rewardForUncles)
 
 	candidate.Orphan = false
 	candidate.Hash = block.Hash
-	candidate.Reward = reward
+	candidate.Reward = bigbig1
 	return nil
 }
 
@@ -461,13 +449,6 @@ func (u *BlockUnlocker) calculateRewards(block *storage.BlockData) (*big.Rat, *b
 		revenue.Add(revenue, extraReward)
 	}
 
-	// if u.config.Donate {
-	// 	var donation = new(big.Rat)
-	// 	poolProfit, donation = chargeFee(poolProfit, donationFee)
-	// 	login := strings.ToLower(donationAccount)
-	// 	rewards[login] += weiToShannonInt64(donation)
-	// }
-
 	if len(u.config.PoolFeeAddress) != 0 {
 		address := strings.ToLower(u.config.PoolFeeAddress)
 		rewards[address] += weiToShannonInt64(poolProfit)
@@ -502,38 +483,41 @@ func weiToShannonInt64(wei *big.Rat) int64 {
 }
 
 var bigbig1 = new(big.Int).Mul(big.NewInt(1), big.NewInt(1e18))
+var bigzero = new(big.Int)
 
 func getConstReward(height int64) *big.Int {
 	return bigbig1
 }
 
 func getRewardForUncle(height int64) *big.Int {
-	reward := getConstReward(height)
-	return new(big.Int).Div(reward, new(big.Int).SetInt64(32))
+	return bigzero
+	// reward := getConstReward(height)
+	// return new(big.Int).Div(reward, new(big.Int).SetInt64(32))
 }
 
 func getUncleReward(uHeight, height int64) *big.Int {
-	reward := getConstReward(height)
-	k := height - uHeight
-	reward.Mul(big.NewInt(8-k), reward)
-	reward.Div(reward, big.NewInt(8))
-	return reward
+	return bigzero
+	// reward := getConstReward(height)
+	// k := height - uHeight
+	// reward.Mul(big.NewInt(8-k), reward)
+	// reward.Div(reward, big.NewInt(8))
+	// return reward
 }
 
 func (u *BlockUnlocker) getExtraRewardForTx(block *rpc.GetBlockReply) (*big.Int, error) {
 	amount := new(big.Int)
-
-	for _, tx := range block.Transactions {
-		receipt, err := u.rpc.GetTxReceipt(tx.Hash)
-		if err != nil {
-			return nil, err
-		}
-		if receipt != nil {
-			gasUsed := util.String2Big(receipt.GasUsed)
-			gasPrice := util.String2Big(tx.GasPrice)
-			fee := new(big.Int).Mul(gasUsed, gasPrice)
-			amount.Add(amount, fee)
-		}
-	}
+	//
+	// for _, tx := range block.Transactions {
+	// 	receipt, err := u.rpc.GetTxReceipt(tx.Hash)
+	// 	if err != nil {
+	// 		return nil, err
+	// 	}
+	// 	if receipt != nil {
+	// 		gasUsed := util.String2Big(receipt.GasUsed)
+	// 		gasPrice := util.String2Big(tx.GasPrice)
+	// 		fee := new(big.Int).Mul(gasUsed, gasPrice)
+	// 		amount.Add(amount, fee)
+	// 	}
+	// }
 	return amount, nil
 }
