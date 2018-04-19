@@ -30,6 +30,10 @@ type ProxyServer struct {
 	hashrateExpiration time.Duration
 	failsCount         int64
 
+	// duplicate share hunter
+	sharelock sync.RWMutex
+	shares    map[uint64]string // nonce:hashnononce
+
 	// Stratum
 	sessionsMu sync.RWMutex
 	sessions   map[*Session]struct{}

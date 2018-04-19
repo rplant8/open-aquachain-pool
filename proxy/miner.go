@@ -13,7 +13,7 @@ import (
 
 var hasher = aquahash.NewLight(params.TestnetChainConfig)
 
-func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, params []string) (bool, bool) {
+func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, params []string) (bool, bool) { // exist , validshare
 	nonceHex := params[0]
 	hashNoNonce := params[1]
 	mixDigest := params[2]
@@ -25,6 +25,19 @@ func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, param
 		log.Printf("Stale share from %v@%v", login, ip)
 		return false, false
 	}
+
+	// extra check for duplicate shares without db
+	s.sharelock.Lock()
+	latestwork, exists := s.shares[nonce]
+	if exists {
+		if latestwork == hashNoNonce {
+			s.sharelock.Unlock()
+			log.Printf("evil share from %v@%v", login, ip)
+			return true, false
+		}
+	}
+	s.shares[nonce] = hashNoNonce
+	s.sharelock.Unlock()
 
 	share := Block{
 		number:      h.height,
