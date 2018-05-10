@@ -7,11 +7,10 @@ import (
 	"strings"
 
 	"github.com/aquanetwork/aquachain/common"
-	"github.com/aquanetwork/aquachain/consensus/aquahash"
-	"github.com/aquanetwork/aquachain/params"
+	"github.com/aquanetwork/aquachain/consensus/lightvalid"
 )
 
-var hasher = aquahash.NewLight(params.TestnetChainConfig)
+var hasher = lightvalid.New()
 
 func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, params []string) (bool, bool) { // exist , validshare
 	nonceHex := params[0]
