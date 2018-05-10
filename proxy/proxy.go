@@ -127,11 +127,19 @@ func NewProxy(cfg *Config, backend *storage.RedisClient) *ProxyServer {
 	return proxy
 }
 
+type errorHandlerJSON struct{}
+
+func (e errorHandlerJSON) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	errReply := &ErrorReply{Code: -1, Message: "Invalid login"}
+	json.NewEncoder(w).Encode(errReply)
+}
+
 func (s *ProxyServer) Start() {
 	log.Printf("Starting proxy on %v", s.config.Proxy.Listen)
 	r := mux.NewRouter()
 	r.Handle("/{login:0x[0-9a-fA-F]{40}}/{id:[0-9a-zA-Z-_]{1,8}}", s)
 	r.Handle("/{login:0x[0-9a-fA-F]{40}}", s)
+	r.NotFoundHandler = new(errorHandlerJSON)
 	srv := &http.Server{
 		Addr:           s.config.Proxy.Listen,
 		Handler:        r,
@@ -166,8 +174,8 @@ func (s *ProxyServer) checkUpstreams() {
 }
 
 func (s *ProxyServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if r.Method != "POST" {
-		s.writeError(w, 405, "rpc: POST method required, received "+r.Method)
+	if r.Method != http.MethodGet {
+		s.writeError(w, 500, "")
 		return
 	}
 	ip := s.remoteAddr(r)
