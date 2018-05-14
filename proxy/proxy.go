@@ -58,7 +58,7 @@ func NewProxy(cfg *Config, backend *storage.RedisClient) *ProxyServer {
 
 	proxy := &ProxyServer{config: cfg, backend: backend, policy: policy}
 	proxy.diff = util.GetTargetHex(cfg.Proxy.Difficulty)
-
+	proxy.shares = make(map[uint64]string)
 	proxy.upstreams = make([]*rpc.RPCClient, len(cfg.Upstream))
 	for i, v := range cfg.Upstream {
 		proxy.upstreams[i] = rpc.NewRPCClient(v.Name, v.Url, v.Timeout)
@@ -139,7 +139,7 @@ func (s *ProxyServer) Start() {
 	r := mux.NewRouter()
 	r.Handle("/{login:0x[0-9a-fA-F]{40}}/{id:[0-9a-zA-Z-_]{1,8}}", s)
 	r.Handle("/{login:0x[0-9a-fA-F]{40}}", s)
-	r.NotFoundHandler = new(errorHandlerJSON)
+	//r.NotFoundHandler = new(errorHandlerJSON)
 	srv := &http.Server{
 		Addr:           s.config.Proxy.Listen,
 		Handler:        r,
@@ -174,7 +174,7 @@ func (s *ProxyServer) checkUpstreams() {
 }
 
 func (s *ProxyServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
+	if r.Method != http.MethodPost {
 		s.writeError(w, 500, "")
 		return
 	}
