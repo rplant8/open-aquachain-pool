@@ -15,10 +15,10 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//example.net/',
+      ApiUrl: '//nl.aquachain-foundation.org/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://example.net',
+      HttpHost: 'http://nl.aquachain-foundation.org',
       HttpPort: 8888,
 
       // Stratum mining endpoint
@@ -30,7 +30,7 @@ module.exports = function(environment) {
       PayoutThreshold: '0.5 Aquachain',
 
       // For network hashrate (change for your favourite fork)
-      BlockTime: 14.4
+      BlockTime: 240.4
     }
   };
 
