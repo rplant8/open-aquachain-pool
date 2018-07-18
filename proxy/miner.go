@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aquanetwork/aquachain/common"
-	"github.com/aquanetwork/aquachain/consensus/lightvalid"
+	"gitlab.com/aquachain/aquachain/common"
+	"gitlab.com/aquachain/aquachain/consensus/lightvalid"
 )
 
 var hasher = lightvalid.New()

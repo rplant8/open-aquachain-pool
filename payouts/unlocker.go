@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aquanetwork/aquachain/common/math"
+	"gitlab.com/aquachain/aquachain/common/math"
 
 	"github.com/aquachain/open-aquachain-pool/rpc"
 	"github.com/aquachain/open-aquachain-pool/storage"
@@ -97,7 +97,7 @@ type UnlockResult struct {
  * Having very likely incorrect height in database results in a weird block unlocking scheme,
  * when I have to check what the hell we actually found and traversing all the blocks with height-N and height+N
  * to make sure we will find it. We can't rely on round height here, it's just a reference point.
- * ISSUE: https://github.com/aquanetwork/aquachain/issues/2333
+ * ISSUE: https://gitlab.com/aquachain/aquachain/issues/2333
  */
 func (u *BlockUnlocker) unlockCandidates(candidates []*storage.BlockData) (*UnlockResult, error) {
 	result := &UnlockResult{}

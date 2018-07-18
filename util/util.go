@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/aquanetwork/aquachain/common"
-	"github.com/aquanetwork/aquachain/common/math"
+	"gitlab.com/aquachain/aquachain/common"
+	"gitlab.com/aquachain/aquachain/common/math"
 )
 
 var Aquachain = math.BigPow(10, 18)

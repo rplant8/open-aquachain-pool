@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/aquanetwork/aquachain/common/hexutil"
+	"gitlab.com/aquachain/aquachain/common/hexutil"
 
 	"github.com/aquachain/open-aquachain-pool/rpc"
 	"github.com/aquachain/open-aquachain-pool/storage"

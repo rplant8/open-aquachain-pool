@@ -12,7 +12,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/aquanetwork/aquachain/common"
+	"gitlab.com/aquachain/aquachain/common"
 
 	"github.com/aquachain/open-aquachain-pool/util"
 )
