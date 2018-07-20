@@ -74,6 +74,10 @@ Download here: https://caddyserver.com
 
 see attached files for CaddyFile
 
+you must change the first line where it says a domain name.
+
+the domain name must resolve, you will get automatic SSL certificate.
+
 ### Putting it all together
 
 (as root)
@@ -106,24 +110,26 @@ Put this line: `@reboot /usr/local/bin/caddy -conf /home/caddy/CaddyFile`
 crontab -u aquachain -e
 ```
 
-Put this line: `@reboot tmux new-session -d -s tmux "$HOME/start.bash"
+Put this line: `@reboot tmux new-session -d -s tmux "$HOME/start.bash"`
 
 
 ```
 crontab -u pool -e
 ```
 
-Put this line: `@reboot tmux new-session -d -s tmux "$HOME/start.bash"
+Put this line: `@reboot tmux new-session -d -s tmux "$HOME/start.bash"`
 
 
 #### start.bash
 
 aquachain: `/usr/local/bin/aquachain -rpc`
+
 pool:      `/usr/local/bin/aquapool /home/pool/pool.json 2>>/home/pool/miner.log 1>>/home/pool/miner.log`
 
 
+### reboot
 
-
+cross fingers
 
 
 
