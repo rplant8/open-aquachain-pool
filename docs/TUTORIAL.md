@@ -131,7 +131,7 @@ pool:      `/usr/local/bin/aquapool /home/pool/pool.json 2>>/home/pool/miner.log
 
 cross fingers
 
-
+if it works, add your pool api to https://github.com/aquachain/aquachain.github.io/blob/master/pools.json 
 
 
 
