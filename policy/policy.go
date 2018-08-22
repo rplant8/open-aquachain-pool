@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/aquachain/open-aquachain-pool/storage"
-	"github.com/aquachain/open-aquachain-pool/util"
+	"github.com/rplant8/open-aquachain-pool/storage"
+	"github.com/rplant8/open-aquachain-pool/util"
 )
 
 type Config struct {
