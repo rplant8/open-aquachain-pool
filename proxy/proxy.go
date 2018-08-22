@@ -13,10 +13,10 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/aquachain/open-aquachain-pool/policy"
-	"github.com/aquachain/open-aquachain-pool/rpc"
-	"github.com/aquachain/open-aquachain-pool/storage"
-	"github.com/aquachain/open-aquachain-pool/util"
+	"github.com/rplant8/open-aquachain-pool/policy"
+	"github.com/rplant8/open-aquachain-pool/rpc"
+	"github.com/rplant8/open-aquachain-pool/storage"
+	"github.com/rplant8/open-aquachain-pool/util"
 )
 
 type ProxyServer struct {
