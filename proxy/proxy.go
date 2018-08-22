@@ -137,7 +137,7 @@ func (e errorHandlerJSON) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func (s *ProxyServer) Start() {
 	log.Printf("Starting proxy on %v", s.config.Proxy.Listen)
 	r := mux.NewRouter()
-	r.Handle("/{login:0x[0-9a-fA-F]{40}}/{id:[0-9a-zA-Z-_]{1,8}}", s)
+	r.Handle("/{login:0x[0-9a-fA-F]{40}}/{id:[0-9a-zA-Z-_]{1,20}}", s)
 	r.Handle("/{login:0x[0-9a-fA-F]{40}}", s)
 	//r.NotFoundHandler = new(errorHandlerJSON)
 	srv := &http.Server{
