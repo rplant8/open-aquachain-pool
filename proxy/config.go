@@ -1,10 +1,10 @@
 package proxy
 
 import (
-	"github.com/aquachain/open-aquachain-pool/api"
-	"github.com/aquachain/open-aquachain-pool/payouts"
-	"github.com/aquachain/open-aquachain-pool/policy"
-	"github.com/aquachain/open-aquachain-pool/storage"
+	"github.com/rplant8/open-aquachain-pool/api"
+	"github.com/rplant8/open-aquachain-pool/payouts"
+	"github.com/rplant8/open-aquachain-pool/policy"
+	"github.com/rplant8/open-aquachain-pool/storage"
 )
 
 type Config struct {
