@@ -9,7 +9,7 @@ import (
 
 	"gopkg.in/redis.v3"
 
-	"github.com/aquachain/open-aquachain-pool/util"
+	"github.com/rplant8/open-aquachain-pool/util"
 )
 
 type Config struct {
