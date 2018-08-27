@@ -14,7 +14,7 @@ import (
 
 	"gitlab.com/aquachain/aquachain/common"
 
-	"github.com/rplant8/open-aquachain-pool/util"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 type RPCClient struct {

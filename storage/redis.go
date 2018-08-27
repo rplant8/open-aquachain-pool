@@ -7,9 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"gopkg.in/redis.v3"
-
-	"github.com/rplant8/open-aquachain-pool/util"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 type Config struct {
