@@ -2,11 +2,13 @@ package storage
 
 import (
 	"fmt"
+
 	"math/big"
 	"strconv"
 	"strings"
 	"time"
 
+	redis "gopkg.in/redis.v3"
 	"github.com/aquachain/open-aquachain-pool/util"
 )
 
