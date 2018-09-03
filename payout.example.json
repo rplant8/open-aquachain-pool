@@ -4,21 +4,21 @@
 	"name": "main",
 
 	"proxy": {
-		"enabled": true,
+		"enabled": false,
 		"listen": "0.0.0.0:8888",
 		"limitHeadersSize": 1024,
 		"limitBodySize": 256,
 		"behindReverseProxy": true,
 		"blockRefreshInterval": "120ms",
 		"stateUpdateInterval": "3s",
-		"difficulty": 7000000,
+		"difficulty": 3000000,
 		"hashrateExpiration": "3h",
 
 		"healthCheck": true,
 		"maxFails": 100,
 
 		"stratum": {
-			"enabled": true,
+			"enabled": false,
 			"listen": "0.0.0.0:19999",
 			"timeout": "120s",
 			"maxConn": 8192
@@ -47,7 +47,7 @@
 	},
 
 	"api": {
-		"enabled": true,
+		"enabled": false,
 		"purgeOnly": false,
 		"purgeInterval": "10m",
 		"listen": "0.0.0.0:8080",
@@ -81,11 +81,11 @@
 	},
 
 	"unlocker": {
-		"enabled": false,
+		"enabled": true,
 		"poolFee": 1.0,
-		"poolFeeAddress": "0x3317e8405e75551ec7eeeb3508650e7b349665ff",
-		"donate": true,
-		"depth": 120,
+		"poolFeeAddress": "",
+		"donate": false,
+		"depth": 50,
 		"immatureDepth": 20,
 		"keepTxFees": false,
 		"interval": "10m",
@@ -94,16 +94,16 @@
 	},
 
 	"payouts": {
-		"enabled": false,
-		"requirePeers": 5,
+		"enabled": true,
+		"requirePeers": 3,
 		"interval": "10m",
-		"daemon": "http://127.0.0.1:8543",
+		"daemon": "http://127.0.0.1:8800",
 		"timeout": "10s",
 		"address": "0x610029a434cb976cf6aa0940c2c68f264dcdee0b",
 		"gas": "21000",
-		"gasPrice": "10000000000",
-		"autoGas": true,
-		"threshold": 500000000,
+		"gasPrice": "1000000000",
+		"autoGas": false,
+		"threshold": 50000000,
 		"bgsave": false
 	},
 
