@@ -18,7 +18,10 @@ func (s *ProxyServer) processShare(login, id, ip string, t *BlockTemplate, param
 	mixDigest := params[2]
 	nonce, _ := strconv.ParseUint(strings.Replace(nonceHex, "0x", "", -1), 16, 64)
 	shareDiff := s.config.Proxy.Difficulty
-
+	if t == nil {
+		log.Printf("nil block template from %v@%v", login, ip)
+		return false, false
+	}
 	h, ok := t.headers[hashNoNonce]
 	if !ok {
 		log.Printf("Stale share from %v@%v", login, ip)
