@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	"gitlab.com/aquachain/aquachain/common"
+	"gitlab.com/aquachain/aquachain/params"
 
 	"github.com/aquachain/open-aquachain-pool/rpc"
 	"github.com/aquachain/open-aquachain-pool/util"
@@ -40,12 +41,12 @@ type Block struct {
 	number      uint64
 }
 
-func (b Block) Version() byte            { return 2 }
-func (b Block) Difficulty() *big.Int     { return b.difficulty }
-func (b Block) HashNoNonce() common.Hash { return b.hashNoNonce }
-func (b Block) Nonce() uint64            { return b.nonce }
-func (b Block) MixDigest() common.Hash   { return b.mixDigest }
-func (b Block) NumberU64() uint64        { return b.number }
+func (b Block) Version() params.HeaderVersion { return 2 }
+func (b Block) Difficulty() *big.Int          { return b.difficulty }
+func (b Block) HashNoNonce() common.Hash      { return b.hashNoNonce }
+func (b Block) Nonce() uint64                 { return b.nonce }
+func (b Block) MixDigest() common.Hash        { return b.mixDigest }
+func (b Block) NumberU64() uint64             { return b.number }
 
 func (s *ProxyServer) fetchBlockTemplate() {
 	rpc := s.rpc()
