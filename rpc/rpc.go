@@ -14,7 +14,7 @@ import (
 
 	"gitlab.com/aquachain/aquachain/common"
 
-	"github.com/rplant8/open-aquachain-pool/util"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 type RPCClient struct {
@@ -152,7 +152,7 @@ func (r *RPCClient) GetTxReceipt(hash string) (*TxReceipt, error) {
 	return nil, nil
 }
 
-func (r *RPCClient) SubmitBlock(params []string) (bool, error) {
+func (r *RPCClient) SubmitWork(params []string) (bool, error) {
 	rpcResp, err := r.doPost(r.Url, "aqua_submitWork", params)
 	if err != nil {
 		return false, err

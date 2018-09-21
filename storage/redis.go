@@ -2,14 +2,14 @@ package storage
 
 import (
 	"fmt"
+
 	"math/big"
 	"strconv"
 	"strings"
 	"time"
 
-	"gopkg.in/redis.v3"
-
-	"github.com/rplant8/open-aquachain-pool/util"
+	redis "gopkg.in/redis.v3"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 type Config struct {

@@ -9,7 +9,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/rplant8/open-aquachain-pool/util"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 const (

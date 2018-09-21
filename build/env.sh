@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -e
-
+set +x
 if [ ! -f "build/env.sh" ]; then
     echo "$0 must be run from the root of the repository."
     exit 2
@@ -10,7 +10,7 @@ fi
 # Create fake Go workspace if it doesn't exist yet.
 workspace="$PWD/build/_workspace"
 root="$PWD"
-ethdir="$workspace/src/github.com/rplant8"
+ethdir="$workspace/src/github.com/aquachain"
 if [ ! -L "$ethdir/open-aquachain-pool" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"

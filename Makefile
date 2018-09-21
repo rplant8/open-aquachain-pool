@@ -7,7 +7,8 @@
 GOBIN = build/bin
 
 all:
-	build/env.sh go get -v ./...
+	#go get -v -u -d gitlab.com/aquachain/aquachain
+	GOBIN=${PWD}/build/bin go install -tags 'netgo osusergo static' -ldflags '-s -w -linkmode external -extldflags -static' -v ./...
 
 test: all
 	build/env.sh go test -v ./...

@@ -13,10 +13,10 @@ import (
 
 	"github.com/yvasiyarov/gorelic"
 
-	"github.com/rplant8/open-aquachain-pool/api"
-	"github.com/rplant8/open-aquachain-pool/payouts"
-	"github.com/rplant8/open-aquachain-pool/proxy"
-	"github.com/rplant8/open-aquachain-pool/storage"
+	"github.com/aquachain/open-aquachain-pool/api"
+	"github.com/aquachain/open-aquachain-pool/payouts"
+	"github.com/aquachain/open-aquachain-pool/proxy"
+	"github.com/aquachain/open-aquachain-pool/storage"
 )
 
 var cfg proxy.Config

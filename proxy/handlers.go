@@ -5,8 +5,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/rplant8/open-aquachain-pool/rpc"
-	"github.com/rplant8/open-aquachain-pool/util"
+	"github.com/aquachain/open-aquachain-pool/rpc"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 // Allow only lowercase hexadecimal with 0x prefix

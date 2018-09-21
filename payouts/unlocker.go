@@ -10,9 +10,9 @@ import (
 
 	"gitlab.com/aquachain/aquachain/common/math"
 
-	"github.com/rplant8/open-aquachain-pool/rpc"
-	"github.com/rplant8/open-aquachain-pool/storage"
-	"github.com/rplant8/open-aquachain-pool/util"
+	"github.com/aquachain/open-aquachain-pool/rpc"
+	"github.com/aquachain/open-aquachain-pool/storage"
+	"github.com/aquachain/open-aquachain-pool/util"
 )
 
 type UnlockerConfig struct {
